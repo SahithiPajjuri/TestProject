@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="116636" started-at="2020-06-10T12:47:24 IST" finished-at="2020-06-10T12:49:21 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="116636" started-at="2020-06-10T12:47:24 IST" finished-at="2020-06-10T12:49:21 IST">
+      <class name="com.makemytrip.BookTickets">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="startTest" is-config="true" duration-ms="262" started-at="2020-06-10T12:47:24 IST" finished-at="2020-06-10T12:47:24 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="beforeClass" is-config="true" duration-ms="7665" started-at="2020-06-10T12:47:24 IST" finished-at="2020-06-10T12:47:32 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="flightsFromHydToMumbai()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="flightsFromHydToMumbai" duration-ms="106819" started-at="2020-06-10T12:47:32 IST" finished-at="2020-06-10T12:49:19 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flightsFromHydToMumbai -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="afterClass" is-config="true" duration-ms="1413" started-at="2020-06-10T12:49:19 IST" finished-at="2020-06-10T12:49:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="endTest()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="endTest" is-config="true" duration-ms="425" started-at="2020-06-10T12:49:20 IST" finished-at="2020-06-10T12:49:21 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTest -->
+      </class> <!-- com.makemytrip.BookTickets -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
