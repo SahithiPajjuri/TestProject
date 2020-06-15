@@ -3,13 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.makemytrip.BookTickets">
+      <class name="com.cleartrip.BookTicketsOneWay">
         <methods>
-          <include name="flightsFromHydToMumbai"/>
-          <include name="afterClass"/>
+          <include name="failTest"/>
           <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="endReport"/>
+          <include name="startTest"/>
         </methods>
-      </class> <!-- com.makemytrip.BookTickets -->
+      </class> <!-- com.cleartrip.BookTicketsOneWay -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

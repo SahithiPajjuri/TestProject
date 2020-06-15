@@ -35,6 +35,17 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/vinay/eclipse-workspace/extentreports-java-2.41.2/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/bson-3.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/extentreports-3.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/gson-2.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/jsoup-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/mongodb-driver-3.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vinay/git/TestProject/webtesting/Resources/mongodb-driver-core-3.3.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

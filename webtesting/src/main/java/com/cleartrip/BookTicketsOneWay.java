@@ -1,4 +1,4 @@
-package com.makemytrip;
+package com.cleartrip;
 
 import org.testng.annotations.Test;
 
@@ -15,11 +15,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -29,12 +25,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
-//import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.ITestResult;
 
 
-public class BookTickets {
+public class BookTicketsOneWay {
 
   private WebDriver driver;
   ExtentTest logger;
@@ -44,7 +39,7 @@ public class BookTickets {
   @BeforeClass
   public void startTest()
   {
-	  htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"\\MakemyTrip.html");
+	  htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"\\CleartripSearchResults.html");
 	  extent = new ExtentReports ();
 	  extent.attachReporter(htmlReporter);
 	  extent.setSystemInfo("Host Name", "cleartrip");
@@ -61,27 +56,23 @@ public class BookTickets {
 	  driver = new ChromeDriver();
   }
   @Test
-  public void flightsFromHyderabadToMumbai() throws Exception {
+  public void flightsFromHydToMumbai() throws Exception {
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-      driver.get("https://www.makemytrip.com/");
+      driver.get("https://www.cleartrip.com/");
       WebDriverWait wait = new WebDriverWait(driver, 10);
       driver.manage().window().maximize();
-      wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Make My Trip']")));
-      String isSelected = driver.findElement(By.xpath("//li[@data-cy='oneWayTrip']")).getAttribute("class");
-      if(!isSelected.equals("selected")) {
-    	  driver.findElement(By.xpath("//li[@data-cy='oneWayTrip']")).click();
+      wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@title='Cleartrip ']")));
+      String isChecked = driver.findElement(By.id("OneWay")).getAttribute("checked");
+      if(!isChecked.equals("checked")) {
+    	  driver.findElement(By.id("OneWay")).click();
     	  Thread.sleep(2000);
       }
-      driver.findElement(By.id("fromCity")).click();
-      driver.findElement(By.xpath("//input[@placeholder='From']")).sendKeys("Hyderabad");
-      driver.findElement(By.xpath("//p[contains(text(),'SUGGESTIONS')]/../../ul/li")).click();
+      driver.findElement(By.id("FromTag")).sendKeys("Hyderabad");
+      wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[@id='ui-id-1']/li[1]"))).click();
       Thread.sleep(3000);
-      WebElement toCity = driver.findElement(By.id("toCity"));
-      ((JavascriptExecutor) driver).executeScript("arguments[0].click();", toCity);
-      driver.findElement(By.xpath("//input[@placeholder='To']")).sendKeys("Mumbai");
-      Thread.sleep(2000);
-      driver.findElement(By.xpath("//p[contains(text(),'SUGGESTIONS')]/../../ul/li")).click();
+      driver.findElement(By.id("ToTag")).sendKeys("Mumbai");
+      wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[@id='ui-id-2']/li[1]"))).click();
       Thread.sleep(3000);
       
       LocalDate today = LocalDate.now();
@@ -91,35 +82,38 @@ public class BookTickets {
       int givenMonth = givenDt.getMonthValue();
       System.out.println("givenMonth"+givenMonth);
       if(givenMonth>currentMonth) {
-    	  WebElement departure = driver.findElement(By.xpath("//label[@for='departure']"));
+    	  WebElement departure = driver.findElement(By.id("DepartDate"));
           ((JavascriptExecutor) driver).executeScript("arguments[0].click();", departure);
           int diff = givenMonth-currentMonth;
           if(diff>=2) {
-        	  int nxtMnth = diff/2;
-        	  for(int i=1;i<=nxtMnth;i++) {
-            	  driver.findElement(By.xpath("//span[@aria-label='Next Month']")).click();
+        	  for(int i=1;i<=(diff-1);i++) {
+            	  driver.findElement(By.xpath("//a[@class='nextMonth ']")).click();
 	        	  Thread.sleep(2000);
-	        	  String monthName = givenDt.getMonth().name();
-	        	  String year = String.valueOf(givenDt.getYear());
-	        	  List<WebElement> mnthYr = driver.findElements(By.xpath("//div[@class='DayPicker-Months']/div"));
-	        	  int mnthYrDisplayed = mnthYr.size();
-	        	  for (int j=1;j<=mnthYrDisplayed;j++) {
-	        		  String mnthYearDisplayed = driver.findElement(By.xpath("//div[@class='DayPicker-Months']/div["+j+"]/div[@class='DayPicker-Caption']/div")).getText();
-	        		  if(mnthYearDisplayed.equalsIgnoreCase(monthName+" "+year)) {
-	        			  String mnthNdDt = monthName.substring(0,1)+monthName.substring(1,3).toLowerCase()+" "+givenDt.getDayOfMonth();
-	        			  driver.findElement(By.xpath("//div[contains(@aria-label,'"+mnthNdDt+" "+year+"')]//p")).click();
-	        	          Thread.sleep(2000); 
-	        		  }
-	        	  }
         	  }
-          }
-          driver.findElement(By.xpath("//a[text()='Search']")).click();
-          Thread.sleep(5000);
+        	  String monthName = givenDt.getMonth().name();
+        	  String year = String.valueOf(givenDt.getYear());
+        	  String mnthDisplayed = driver.findElement(By.xpath("//div[@class='monthBlock last']/div/div/span[1]")).getText();
+        	  Assert.assertTrue(monthName.equalsIgnoreCase(mnthDisplayed));
+        	  String yrDisplayed = driver.findElement(By.xpath("//div[@class='monthBlock last']/div/div/span[2]")).getText();
+        	  Assert.assertEquals(year, yrDisplayed);
+        	  int dt = givenDt.getDayOfMonth();
+  	          driver.findElement(By.xpath("//div[@class='monthBlock last']//a[text()='"+dt+"']")).click();
+  	          Thread.sleep(2000); 
+          }         
+          Select se = new Select(driver.findElement(By.id("Adults")));
+          se.selectByIndex(1);
+          Select se1 = new Select(driver.findElement(By.id("Childrens")));
+          se.selectByIndex(0);
+          Select se2 = new Select(driver.findElement(By.id("Infants")));
+          se.selectByIndex(0);         
+          driver.findElement(By.id("SearchBtn")).click();
+          Thread.sleep(10000);
           for (int k=1;k<=10;k++) {
 	          ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	          Thread.sleep(6000);
           }
-          List<WebElement> searchResults = driver.findElements(By.xpath("//div[@id='left-side--wrapper']/div[3]/div/div"));
+          ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, -document.body.scrollHeight);");
+          List<WebElement> searchResults = driver.findElements(By.xpath("//div[@class='sticky__parent']/../div[8]/div"));
     	  int totNoOfFlights = searchResults.size();
     	  System.out.println("totNoOfFlights"+totNoOfFlights);
       } 
@@ -150,7 +144,7 @@ public class BookTickets {
   }
   
   @AfterClass
-  public void endTest()
+  public void endReport()
   {
 	  extent.flush();
   }

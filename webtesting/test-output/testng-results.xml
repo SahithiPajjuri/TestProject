@@ -2,28 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="116636" started-at="2020-06-10T12:47:24 IST" finished-at="2020-06-10T12:49:21 IST">
+  <suite name="Default suite" duration-ms="116420" started-at="2020-06-15T13:07:22 IST" finished-at="2020-06-15T13:09:18 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="116636" started-at="2020-06-10T12:47:24 IST" finished-at="2020-06-10T12:49:21 IST">
+    <test name="Default test" duration-ms="116420" started-at="2020-06-15T13:07:22 IST" finished-at="2020-06-15T13:09:18 IST">
       <class name="com.makemytrip.BookTickets">
-        <test-method status="PASS" signature="startTest()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="startTest" is-config="true" duration-ms="262" started-at="2020-06-10T12:47:24 IST" finished-at="2020-06-10T12:47:24 IST">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="startTest" is-config="true" duration-ms="168" started-at="2020-06-15T13:07:22 IST" finished-at="2020-06-15T13:07:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="beforeClass" is-config="true" duration-ms="7665" started-at="2020-06-10T12:47:24 IST" finished-at="2020-06-10T12:47:32 IST">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="beforeClass" is-config="true" duration-ms="4150" started-at="2020-06-15T13:07:22 IST" finished-at="2020-06-15T13:07:26 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="flightsFromHydToMumbai()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="flightsFromHydToMumbai" duration-ms="106819" started-at="2020-06-10T12:47:32 IST" finished-at="2020-06-10T12:49:19 IST">
+        <test-method status="PASS" signature="flightsFromHyderabadToMumbai()[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="flightsFromHyderabadToMumbai" duration-ms="110485" started-at="2020-06-15T13:07:26 IST" finished-at="2020-06-15T13:09:17 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- flightsFromHydToMumbai -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="afterClass" is-config="true" duration-ms="1413" started-at="2020-06-10T12:49:19 IST" finished-at="2020-06-10T12:49:20 IST">
+        </test-method> <!-- flightsFromHyderabadToMumbai -->
+        <test-method status="PASS" signature="afterClass(org.testng.ITestResult)[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="afterClass" is-config="true" duration-ms="1282" started-at="2020-06-15T13:09:17 IST" finished-at="2020-06-15T13:09:18 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=flightsFromHyderabadToMumbai status=SUCCESS method=BookTickets.flightsFromHyderabadToMumbai()[pri:0, instance:com.makemytrip.BookTickets@69a10787] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:com.makemytrip.BookTickets@77a57272]" name="endTest" is-config="true" duration-ms="425" started-at="2020-06-10T12:49:20 IST" finished-at="2020-06-10T12:49:21 IST">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="endTest" is-config="true" duration-ms="274" started-at="2020-06-15T13:09:18 IST" finished-at="2020-06-15T13:09:18 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
