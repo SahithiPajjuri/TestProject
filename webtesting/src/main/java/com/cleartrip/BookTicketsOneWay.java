@@ -14,7 +14,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -108,14 +112,70 @@ public class BookTicketsOneWay {
           se.selectByIndex(0);         
           driver.findElement(By.id("SearchBtn")).click();
           Thread.sleep(10000);
+          driver.findElement(By.xpath("//p[contains(text(),'Non-stop')]/../../../div[1]/input")).click();
+          Thread.sleep(10000);
           for (int k=1;k<=10;k++) {
 	          ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-	          Thread.sleep(6000);
+	          Thread.sleep(3000);
           }
           ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, -document.body.scrollHeight);");
-          List<WebElement> searchResults = driver.findElements(By.xpath("//div[@class='sticky__parent']/../div[8]/div"));
+          List<WebElement> searchResults = driver.findElements(By.xpath("//div[contains(@class,'sticky__parent')]/../div[7]/div"));
     	  int totNoOfFlights = searchResults.size();
     	  System.out.println("totNoOfFlights"+totNoOfFlights);
+    	  
+    	  //create an excel and copy the search result into excel
+    	  File file = new File(System.getProperty("user.dir")+"\\FlightSearchResult.xlsx");
+    	  XSSFWorkbook wb = new XSSFWorkbook();
+    	  XSSFSheet sh = wb.createSheet("HydToMumbai");
+    	  sh.createRow(0).createCell(0).setCellValue("Flight No");
+    	  sh.getRow(0).createCell(1).setCellValue("Flight Name");
+    	  sh.getRow(0).createCell(2).setCellValue("Flight Duration");
+    	  sh.getRow(0).createCell(3).setCellValue("Departure time");
+    	  sh.getRow(0).createCell(4).setCellValue("Arrival time");
+    	  sh.getRow(0).createCell(5).setCellValue("Price");
+    	  
+    	  for(int j=1;j<=totNoOfFlights;j++) {
+    		  System.out.println("Entered for");
+    		  String rsFlightDuration = driver.findElement(By.xpath("//div[contains(@class,'sticky__parent')]/../div[7]/div["+j+"]/div/div[2]/div[2]//div[3]/p")).getText();
+    		  System.out.println("rsFlightDuration"+rsFlightDuration);
+    		  sh.createRow(j).createCell(2).setCellValue(rsFlightDuration);
+    		  
+    		  String rsDepartureTime = driver.findElement(By.xpath("//div[contains(@class,'sticky__parent')]/../div[7]/div["+j+"]/div/div[2]/div[2]/div/div[1]/p")).getText();
+    		  sh.getRow(j).createCell(3).setCellValue(rsDepartureTime);
+    		  System.out.println("rsDepartureTime"+rsDepartureTime);
+    		  
+    		  String rsArrivalTime = driver.findElement(By.xpath("//div[contains(@class,'sticky__parent')]/../div[7]/div["+j+"]/div/div[2]/div[2]/div/div[2]/p")).getText();
+    		  sh.getRow(j).createCell(4).setCellValue(rsArrivalTime);
+    		  System.out.println("rsArrivalTime"+rsArrivalTime);
+    		  
+    		  String rsPrice = driver.findElement(By.xpath("//div[contains(@class,'sticky__parent')]/../div[7]/div["+j+"]/div/div[2]/div[3]/div[2]/p")).getText();
+    		  System.out.println("rsPrice"+rsPrice);
+    		  sh.getRow(j).createCell(5).setCellValue(rsPrice);
+    		  driver.findElement(By.xpath("//div[contains(@class,'sticky__parent')]/../div[7]/div["+j+"]/div/div[2]/div/div/span")).click();
+              Thread.sleep(1000);
+              
+              String rsFlightName = driver.findElement(By.xpath("//div[contains(@class,'sticky__parent')]/../div[7]/div["+j+"]/div/div[3]/div/div/div[2]//div/div/div/div/p")).getText();
+    		  sh.getRow(j).createCell(1).setCellValue(rsFlightName);
+    		  System.out.println("rsFlightName"+rsFlightName);
+    		  
+    		  String rsFlightNo = driver.findElement(By.xpath("//div[contains(@class,'sticky__parent')]/../div[7]/div["+j+"]/div/div[3]/div/div/div[2]//div/div/div/div/div/p[1]")).getText();
+    		  sh.getRow(j).createCell(0).setCellValue(rsFlightNo);
+    		  System.out.println("rsFlightNo"+rsFlightNo);
+    		  System.out.println("--------------------------------------------------------------------------------------");
+    		  
+    		  int divisibleByFive = j%5;
+    		  if(divisibleByFive == 0) {
+    			  ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, "+(j*500)+")");
+    		  }
+    	  }
+    	  
+    	  try {
+    		  FileOutputStream fos = new FileOutputStream(file);
+        	  wb.write(fos);
+    	  }catch(Exception e) {
+    		  e.printStackTrace();
+    	  }
+    	  
       } 
   }
   

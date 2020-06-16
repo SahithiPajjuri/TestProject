@@ -5,8 +5,8 @@
     <classes>
       <class name="com.cleartrip.BookTicketsOneWay">
         <methods>
-          <include name="failTest"/>
           <include name="beforeClass"/>
+          <include name="flightsFromHydToMumbai"/>
           <include name="afterClass"/>
           <include name="endReport"/>
           <include name="startTest"/>

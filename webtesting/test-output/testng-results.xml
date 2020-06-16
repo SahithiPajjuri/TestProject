@@ -2,39 +2,39 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="116420" started-at="2020-06-15T13:07:22 IST" finished-at="2020-06-15T13:09:18 IST">
+  <suite name="Default suite" duration-ms="91051" started-at="2020-06-16T17:57:45 IST" finished-at="2020-06-16T17:59:16 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="116420" started-at="2020-06-15T13:07:22 IST" finished-at="2020-06-15T13:09:18 IST">
-      <class name="com.makemytrip.BookTickets">
-        <test-method status="PASS" signature="startTest()[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="startTest" is-config="true" duration-ms="168" started-at="2020-06-15T13:07:22 IST" finished-at="2020-06-15T13:07:22 IST">
+    <test name="Default test" duration-ms="91051" started-at="2020-06-16T17:57:45 IST" finished-at="2020-06-16T17:59:16 IST">
+      <class name="com.cleartrip.BookTicketsOneWay">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:com.cleartrip.BookTicketsOneWay@3e77a1ed]" name="startTest" is-config="true" duration-ms="187" started-at="2020-06-16T17:57:45 IST" finished-at="2020-06-16T17:57:45 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="beforeClass" is-config="true" duration-ms="4150" started-at="2020-06-15T13:07:22 IST" finished-at="2020-06-15T13:07:26 IST">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.cleartrip.BookTicketsOneWay@3e77a1ed]" name="beforeClass" is-config="true" duration-ms="4427" started-at="2020-06-16T17:57:45 IST" finished-at="2020-06-16T17:57:50 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="flightsFromHyderabadToMumbai()[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="flightsFromHyderabadToMumbai" duration-ms="110485" started-at="2020-06-15T13:07:26 IST" finished-at="2020-06-15T13:09:17 IST">
+        <test-method status="PASS" signature="flightsFromHydToMumbai()[pri:0, instance:com.cleartrip.BookTicketsOneWay@3e77a1ed]" name="flightsFromHydToMumbai" duration-ms="84802" started-at="2020-06-16T17:57:50 IST" finished-at="2020-06-16T17:59:15 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- flightsFromHyderabadToMumbai -->
-        <test-method status="PASS" signature="afterClass(org.testng.ITestResult)[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="afterClass" is-config="true" duration-ms="1282" started-at="2020-06-15T13:09:17 IST" finished-at="2020-06-15T13:09:18 IST">
+        </test-method> <!-- flightsFromHydToMumbai -->
+        <test-method status="PASS" signature="afterClass(org.testng.ITestResult)[pri:0, instance:com.cleartrip.BookTicketsOneWay@3e77a1ed]" name="afterClass" is-config="true" duration-ms="1246" started-at="2020-06-16T17:59:15 IST" finished-at="2020-06-16T17:59:16 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=flightsFromHyderabadToMumbai status=SUCCESS method=BookTickets.flightsFromHyderabadToMumbai()[pri:0, instance:com.makemytrip.BookTickets@69a10787] output={null}]]]>
+                <![CDATA[[TestResult name=flightsFromHydToMumbai status=SUCCESS method=BookTicketsOneWay.flightsFromHydToMumbai()[pri:0, instance:com.cleartrip.BookTicketsOneWay@3e77a1ed] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:com.makemytrip.BookTickets@69a10787]" name="endTest" is-config="true" duration-ms="274" started-at="2020-06-15T13:09:18 IST" finished-at="2020-06-15T13:09:18 IST">
+        <test-method status="PASS" signature="endReport()[pri:0, instance:com.cleartrip.BookTicketsOneWay@3e77a1ed]" name="endReport" is-config="true" duration-ms="331" started-at="2020-06-16T17:59:16 IST" finished-at="2020-06-16T17:59:16 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTest -->
-      </class> <!-- com.makemytrip.BookTickets -->
+        </test-method> <!-- endReport -->
+      </class> <!-- com.cleartrip.BookTicketsOneWay -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
